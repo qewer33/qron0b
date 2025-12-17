@@ -15,15 +15,17 @@
 
 ### Features
 
-qron0b's default firmware is very minimalistic and thus only contains two basic features: reading time and setting time. The watch is in the sleep state by default with the SPU in power-down mode and the display off. When the onboard button is clicked, the CPU is wakes up from sleep and displays the current time in the LED matrix for 10 seconds. The time can be set while the watch is awake by long pressing the onboard button. Both features are explained in detail under the next two headings.
+qron0b's default firmware is very minimalistic and thus only contains two basic features: reading time and setting time. The watch is in the sleep state by default with the CPU in power-down mode and the display off. When the onboard button is clicked, the CPU is wakes up from sleep and displays the current time in the LED matrix for 10 seconds. The time can be set while the watch is awake by long pressing the onboard button. Both features are explained in detail under the next two headings.
 
-### How To Read
+### Reading Time
 
-The time is displayed in BCD (binary coded decimal) format on qron0b's 4x4 LED matrix in columns (HH:MM), with the LSB (least-significant bir) being the lowest LED. Meaning for each column; the most bottom LED represents 1, the one above represents 2, two above represents 4 and the topmost LED represents 8. The first column is the tens digit of hour, the second column is ones digit of hour, third column is tens digit of minute and the fourth column is ones digit of minute.
+The time is displayed in BCD (binary coded decimal) format on qron0b's 4x4 LED matrix in columns (HH:MM), with the LSB (least-significant bir) being the bottom-most LED. Meaning for each column; the bottom-most LED represents 1, the one above represents 2, two above represents 4 and the top-most LED represents 8. All LEDs being off in a column represents 0. The first column is the tens digit of hour, the second column is the ones digit of hour, third column is the tens digit of minute and the fourth column is the ones digit of minute.
 
 Below is a visual explanation and a few examples to help explain it better:
 
-### Setting time
+![reading_time](https://github.com/qewer33/qron0b/blob/main/assets/qron0b_time_examples.png?raw=true)
+
+### Setting Time
 
 The time can be set while the watch is awake by long pressing the onboard button. The whole LED matrix will flash for ~0.5 seconds to indicate entering edit mode. After the watch enters edit mode, the first column (tens digit of hour) will start flashing (it may not flash if it's 0). Press the button once to increment the current column/digits value (it will wrap automatically, eg. between 0-2 for tens digit of hour or 0-5 for the tens digit of minute). After setting the current digit to the desired value, long press the button to move on to the next digit (the next column will start flashing). Long pressing on the last digit/column (the ones column of minute) will save the newly set time to the RTC and exit edit mode.
 
@@ -47,6 +49,6 @@ The mechanical parts of qron0b (the watch casing) is designed in the free and op
 
 ## Firmware
 
-The qron0b firmware is written in bare-metal AVR C. It's written to be as minimal as possible and is only 1864 bytes, meaning it can even run on the ATtiny24A (in fact, it's designed for the 24!).
+The qron0b firmware is written in bare-metal AVR C. It's written to be as minimal as possible and is only 1864 bytes, meaning it can even run on the ATtiny24A (in fact, it's designed for the 24A!).
 
 For more information on the firmware, see the README.md file inside firmware/.
