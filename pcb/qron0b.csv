@@ -1,0 +1,9 @@
+"Id";"Designator";"Footprint";"Quantity";"Designation";"Supplier and ref";
+1;"SW1";"SW_Tactile_SPST_NO_Straight_CK_PTS636Sx25SMTRLFS";1;"SW_Right";;;
+2;"R4,R3,R2,R5";"R_1206_3216Metric_Pad1.30x1.75mm_HandSolder";4;"1K";;;
+3;"D8,D13,D15,D1,D2,D11,D12,D6,D16,D9,D14,D3,D7,D10,D5,D4";"LED_1206_3216Metric_Pad1.42x1.75mm_HandSolder";16;"LED";;;
+4;"U3";"SOIC-16_3.9x9.9mm_P1.27mm";1;"74HC595";;;
+5;"C3,C1,C4,C2";"C_1206_3216Metric_Pad1.33x1.80mm_HandSolder";4;"0.1uF";;;
+6;"U1";"SOIC-14_3.9x8.7mm_P1.27mm";1;"ATtiny24A-SS";;;
+7;"U2";"SOIC-8_3.9x4.9mm_P1.27mm";1;"DS1302Z+";;;
+8;"R1";"R_1206_3216Metric_Pad1.30x1.75mm_HandSolder";1;"1.5K";;;

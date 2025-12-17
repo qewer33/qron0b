@@ -1,0 +1,11 @@
+{
+    "files.associations": {
+        "io.h": "c",
+        "delay.h": "c",
+        "interrupt.h": "c",
+        "matrix.h": "c",
+        "locale": "c",
+        "config.h": "c",
+        "gpio.h": "c"
+    }
+}

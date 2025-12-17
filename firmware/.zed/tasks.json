@@ -1,0 +1,32 @@
+[
+  {
+    "label": "Build Firmware",
+    "command": "./build.sh",
+    "use_new_terminal": true,
+    "allow_concurrent_runs": false
+  },
+  {
+    "label": "Flash Firmware",
+    "command": "./flash.sh",
+    "use_new_terminal": true,
+    "allow_concurrent_runs": false
+  },
+  {
+    "label": "Flash Firmware + Fuses",
+    "command": "./flash.sh --fuses",
+    "use_new_terminal": true,
+    "allow_concurrent_runs": false
+  },
+  {
+    "label": "Build & Flash",
+    "command": "bash -c './build.sh && ./flash.sh'",
+    "use_new_terminal": true,
+    "allow_concurrent_runs": false
+  },
+  {
+    "label": "Build & Flash + Fuses",
+    "command": "bash -c './build.sh && ./flash.sh --fuses'",
+    "use_new_terminal": true,
+    "allow_concurrent_runs": false
+  }
+]

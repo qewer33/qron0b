@@ -1,0 +1,8 @@
+-xc
+--target=avr
+-mmcu=attiny24a
+-Os
+-I/usr/avr/include
+-I.
+-include
+src/config.h
