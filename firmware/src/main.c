@@ -3,9 +3,14 @@
 #include "rtc.h"
 #include "key.h"
 
+#include <avr/eeprom.h>
 #include <avr/io.h>
 #include <avr/interrupt.h>
 #include <util/delay.h>
+#include <avr/wdt.h>
+
+// Flag to set comptime only on first boot after flash
+#define COMPTIME_FLAG_ADDR 0x00
 
 // Global variable to track system uptime (in ms)
 volatile uint16_t uptime = 0;
@@ -34,24 +39,37 @@ static void state_display(void);
 static void state_edit(KeyEvent key_ev);
 
 int main(void) {
+    MCUSR = 0;
+    wdt_disable();
+        
     // Hardware init
     disable_unused();
     setup_wakeup_pin();
     shift_register_init();
     rtc_init();
     timer_init();
+    
+    // Enable watchdog timer
+    wdt_enable(WDTO_2S);
 
     sei(); // Enable interrupts
 
-    // Use compile time clock
-    get_compile_time(&h, &m, &s);
-    rtc_set_time(h, m, s);
+    // Use compile time clock only after first flash
+    if (eeprom_read_byte(COMPTIME_FLAG_ADDR) == 0xFF) {
+        get_compile_time(&h, &m, &s);
+        rtc_set_time(h, m, s);
+        // Update flag
+        eeprom_update_byte(COMPTIME_FLAG_ADDR, 0x00);
+    }
 
     // Startup delay
-    _delay_ms(3000);
+    wdt_reset();
+    _delay_ms(1000);
 
     // Main loop
     while (1) {
+        wdt_reset();
+        
         KeyEvent key_ev = read_key(uptime);
 
         // Switch to edit mode if key long pressed on display mode
@@ -95,11 +113,13 @@ static void state_display(void) {
         }
 
         matrix_display_time(h, m);
-        
+
         _delay_us(600); // Idle between frames to cut average LED load
     } else {
+        wdt_disable(); // Disable WDT
         enter_deep_sleep();
         // After sleep
+        wdt_enable(WDTO_2S); // Re-enable WDT
         rtc_get_time(&h, &m, &s);
         _delay_ms(20);
         uptime = 0;

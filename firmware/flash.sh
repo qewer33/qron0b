@@ -14,7 +14,7 @@ fi
 # Flash the board
 echo "Running avrdude..."
 if [ "$1" = "--fuses" ]; then
-    avrdude -c arduino -p t24 -P /dev/tty$PORT -b 19200 -B 250 -U lfuse:w:0x62:m -U hfuse:w:0xDD:m -U flash:w:build/main.hex:i -F
+    avrdude -c arduino -p t24 -P /dev/tty$PORT -b 19200 -B 250 -e -U lfuse:w:0x62:m -U hfuse:w:0xDD:m -U flash:w:build/main.hex:i -F
 else
-    avrdude -c arduino -p t24 -P /dev/tty$PORT -b 19200 -B 250 -U flash:w:build/main.hex:i -F
+    avrdude -c arduino -p t24 -P /dev/tty$PORT -b 19200 -B 250 -e -U flash:w:build/main.hex:i -F
 fi

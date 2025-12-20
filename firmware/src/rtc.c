@@ -2,6 +2,7 @@
 #include "gpio.h"
 
 #include <avr/io.h>
+#include <avr/eeprom.h>
 #include <util/delay.h>
 
 // Initialize RTC
@@ -16,8 +17,8 @@ void rtc_init() {
 // Write a single byte to the RTC
 void rtc_write_byte(uint8_t data) {
     for (uint8_t i = 0; i < 8; i++) {
-        // LSB first
-        if (data & (1 << i))
+        // Send data LSB
+        if (data & 0x01)
             PIN_HIGH(PORTA, RTC_IO);
         else
             PIN_LOW(PORTA, RTC_IO);
@@ -28,6 +29,8 @@ void rtc_write_byte(uint8_t data) {
         PIN_HIGH(PORTA, RTC_SCLK);
         _delay_us(1);
         PIN_LOW(PORTA, RTC_SCLK);
+        
+        data >>= 1; // Shift data right
     }
 }
 
@@ -38,8 +41,11 @@ uint8_t rtc_read_byte() {
     PIN_INPUT(DDRA, RTC_IO);
 
     for (uint8_t i = 0; i < 8; i++) {
-        if (PINA & (1 << RTC_IO))
-            data |= (1 << i);
+        data >>= 1; // Shift data right
+        
+        // Read and set data MSB
+        if (IS_PIN_HIGH(PINA, RTC_IO))
+            data |= 0x80;
 
         // Pulse clock
         PIN_HIGH(PORTA, RTC_SCLK);

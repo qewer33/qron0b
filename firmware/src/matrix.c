@@ -21,7 +21,7 @@ void shift_register_init() {
 // Write data to the shift register
 void shift_register_write(uint8_t data) {
     for (uint8_t i = 0; i < 8; i++) {
-        // Set data
+        // Send data MSB
         if (data & 0x80)
             PIN_HIGH(PORTA, REG_SER);
         else
@@ -34,7 +34,7 @@ void shift_register_write(uint8_t data) {
         _delay_us(10);
         PIN_LOW(PORTB, REG_SRCLK);
 
-        data <<= 1; // Shift data
+        data <<= 1; // Shift  left
     }
 
     // Pulse latch

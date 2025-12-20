@@ -7,7 +7,6 @@ KeyEvent read_key(volatile uint16_t time) {
     static uint8_t handled = 0; // Has the event been handled already?
     
     if (IS_PIN_HIGH(PINA, KEY)) { // Button press
-        
         // Event begin
         if (start_time == 0) {
             start_time = time;

@@ -49,6 +49,6 @@ The mechanical parts of qron0b (the watch casing) is designed in the free and op
 
 ## Firmware
 
-The qron0b firmware is written in bare-metal AVR C. It's written to be as minimal as possible and is only 1864 bytes, meaning it can even run on the ATtiny24A (in fact, it's designed for the 24A!).
+The qron0b firmware is written in bare-metal AVR C. It's written to be as minimal as possible and is only 1822 bytes, meaning it can even run on the ATtiny24A (in fact, it's designed for the 24A!).
 
 For more information on the firmware, see the README.md file inside firmware/.
