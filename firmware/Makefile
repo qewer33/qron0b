@@ -2,7 +2,7 @@
 MCU      = attiny24a
 F_CPU    = 1000000UL
 PROGRAMMER = arduino
-PORT     ?= /dev/ttyUSB0
+PORT     ?= USB0
 BAUD     = 19200
 
 # Directory structure
@@ -20,10 +20,9 @@ OBJS = $(SRCS:$(SRC_DIR)/%.c=$(BUILD_DIR)/%.o)
 # --- FLAGS ---
 CFLAGS   = -mmcu=$(MCU) -Os -DF_CPU=$(F_CPU)
 CFLAGS  += -include src/config.h
-CFLAGS  += -mcall-prologues -flto -fno-exceptions 
-CFLAGS  += -ffunction-sections -fdata-sections 
+CFLAGS  += -mcall-prologues -flto
+CFLAGS  += -ffunction-sections -fdata-sections
 CFLAGS  += -fvisibility=hidden
-# Added warnings
 CFLAGS  += -Wall -Wextra
 
 # Linker Flags
@@ -57,9 +56,7 @@ $(TARGET).hex: $(TARGET).elf
 
 # Show Size
 size: $(TARGET).elf
-	@echo "--------------------------------------------------"
 	@avr-size -C --mcu=$(MCU) $(TARGET).elf
-	@echo "--------------------------------------------------"
 
 # Flash Firmware
 flash: $(TARGET).hex
