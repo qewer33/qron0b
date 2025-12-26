@@ -13,9 +13,11 @@
 
 ## The Product
 
+![photo](https://github.com/qewer33/qron0b/blob/main/assets/main_photo.jpeg?raw=true)
+
 ### Features
 
-qron0b's default firmware is very minimalistic and thus only contains two basic features: reading time and setting time. The watch is in the sleep state by default with the CPU in power-down mode and the display off. When the onboard button is clicked, the CPU is wakes up from sleep and displays the current time in the LED matrix for 10 seconds. The time can be set while the watch is awake by long pressing the onboard button. Both features are explained in detail under the next two headings.
+qron0b's default firmware is very minimalistic and thus only contains two basic features: **reading time** and **setting time**. The watch is in the sleep state by default with the CPU in power-down mode and the display off. When the onboard button is clicked, the CPU is wakes up from sleep and displays the current time in the LED matrix for 10 seconds. The time can be set while the watch is awake by long pressing the onboard button. Both features are explained in detail under the next two headings.
 
 ### Reading Time
 
@@ -33,7 +35,7 @@ The time can be set while the watch is awake by long pressing the onboard button
 
 ### PCB Design
 
-The qron0b PCB is designed in the free and open source EDA software, KiCAD.
+The qron0b PCB is designed in the free and open source EDA software, KiCAD. You can find the PCB design source files under [pcb/](https://github.com/qewer33/qron0b/tree/main/pcb).
 
 ![schematic](https://github.com/qewer33/qron0b/blob/main/assets/schematic.png?raw=true)
 
@@ -43,12 +45,14 @@ The qron0b PCB is designed in the free and open source EDA software, KiCAD.
 
 ### Mechanical Design
 
-The mechanical parts of qron0b (the watch casing) is designed in the free and open source CAD software, FreeCAD.
+The mechanical parts of qron0b (the watch casing) is designed in the free and open source CAD software, FreeCAD. The watch case is designed in 2 parts: the bottom base and the top "glass". They connect together via a simple clip system. The bottom base casing accepts 22mm GT2/GT3 style watch straps.
+
+You can find the CAD source and 3D print files under [cad/](https://github.com/qewer33/qron0b/tree/main/cad).
 
 ![freecad](https://github.com/qewer33/qron0b/blob/main/assets/freecad_screenshot.png?raw=true)
 
 ## Firmware
 
-The qron0b firmware is written in bare-metal AVR C. It's written to be as minimal as possible and is only 1822 bytes, meaning it can even run on the ATtiny24A (in fact, it's designed for the 24A!).
+The qron0b firmware is written in bare-metal AVR C. It's written to be as minimal as possible and is only 1916 bytes, meaning it can even run on the ATtiny24A (in fact, it's designed for the 24A!).
 
-For more information on the firmware, see the README.md file inside firmware/.
+For more information on the firmware, see the README.md file inside [firmware/](https://github.com/qewer33/qron0b/tree/main/firmware).
