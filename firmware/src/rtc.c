@@ -12,6 +12,9 @@ void rtc_init() {
     PIN_OUTPUT(DDRA, RTC_IO);
     PIN_LOW(PORTA, RTC_CE);
     PIN_LOW(PORTA, RTC_SCLK);
+
+    // Disable trickle charger (TCS) to reduce standby current
+    rtc_write_register(0x90, 0x00);
 }
 
 // Write a single byte to the RTC

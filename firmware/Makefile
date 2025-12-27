@@ -51,11 +51,11 @@ size: $(TARGET).elf
 
 flash: $(TARGET).hex
 	@echo "Flashing firmware to /dev/tty$(PORT)..."
-	avrdude -c $(PROGRAMMER) -p t24 -P /dev/tty$(PORT) -b $(BAUD) -B 250 -e -U flash:w:$(TARGET).hex:i -F
+	avrdude -c $(PROGRAMMER) -p t24 -P /dev/tty$(PORT) -b $(BAUD) -B 50 -e -U flash:w:$(TARGET).hex:i -F
 
 flash_fuses: $(TARGET).hex
 	@echo "Flashing fuses & firmware /dev/tty$(PORT)..."
-	avrdude -c $(PROGRAMMER) -p t24 -P /dev/tty$(PORT) -b $(BAUD) -B 250 -e -U lfuse:w:0x62:m -U hfuse:w:0xDD:m -U flash:w:$(TARGET).hex:i -F
+	avrdude -c $(PROGRAMMER) -p t24 -P /dev/tty$(PORT) -b $(BAUD) -B 50 -e -U lfuse:w:0x62:m -U flash:w:$(TARGET).hex:i -F
 
 clean:
 	rm -rf $(BUILD_DIR)
