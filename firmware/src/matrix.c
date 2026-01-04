@@ -14,7 +14,7 @@ void shift_register_init() {
 
     // Pulse reset
     PIN_LOW(PORTB, REG_SRCLR);
-    _delay_us(10);
+    _delay_us(1);
     PIN_HIGH(PORTB, REG_SRCLR);
 }
 
@@ -27,11 +27,11 @@ void shift_register_write(uint8_t data) {
         else
             PIN_LOW(PORTA, REG_SER);
 
-        _delay_us(10);
+        _delay_us(1);
 
         // Pulse clock
         PIN_HIGH(PORTB, REG_SRCLK);
-        _delay_us(10);
+        _delay_us(1);
         PIN_LOW(PORTB, REG_SRCLK);
 
         data <<= 1; // Shift  left
@@ -39,7 +39,7 @@ void shift_register_write(uint8_t data) {
 
     // Pulse latch
     PIN_HIGH(PORTB, REG_RCLK);
-    _delay_us(10);
+    _delay_us(1);
     PIN_LOW(PORTB, REG_RCLK);
 }
 

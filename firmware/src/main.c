@@ -62,10 +62,8 @@ int main(void) {
         eeprom_update_byte(COMPTIME_FLAG_ADDR, 0x00);
     }
 
-    // Startup delay
     wdt_reset();
-    _delay_ms(1000);
-
+    
     // Main loop
     while (1) {
         wdt_reset();
@@ -121,7 +119,6 @@ static void state_display(void) {
         // After sleep
         wdt_enable(WDTO_2S); // Re-enable WDT
         rtc_get_time(&h, &m, &s);
-        _delay_ms(20);
         uptime = 0;
     }
 }
