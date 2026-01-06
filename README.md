@@ -25,7 +25,7 @@ The time is displayed in BCD (binary coded decimal) format on qron0b's 4x4 LED m
 
 Below is a visual explanation and a few examples to help explain it better:
 
-![reading_time](https://github.com/qewer33/qron0b/blob/main/assets/qron0b_time_examples.png?raw=true)
+![reading time](https://github.com/qewer33/qron0b/blob/main/assets/qron0b_time_examples.png?raw=true)
 
 ### Setting Time
 
@@ -39,9 +39,9 @@ The qron0b PCB is designed in the free and open source EDA software, KiCAD. You 
 
 ![schematic](https://github.com/qewer33/qron0b/blob/main/assets/schematic.png?raw=true)
 
-![pcb_kicad](https://github.com/qewer33/qron0b/blob/main/assets/pcb_kicad_screenshot.png?raw=true)
+![kicad screenshot](https://github.com/qewer33/qron0b/blob/main/assets/pcb_kicad_screenshot.png?raw=true)
 
-![pcb](https://github.com/qewer33/qron0b/blob/main/assets/qron0b_pcb.png?raw=true)
+![pcb 3d render](https://github.com/qewer33/qron0b/blob/main/assets/qron0b_pcb.png?raw=true)
 
 ### Mechanical Design
 
@@ -49,7 +49,9 @@ The mechanical parts of qron0b (the watch casing) is designed in the free and op
 
 You can find the CAD source and 3D print files under [cad/](https://github.com/qewer33/qron0b/tree/main/cad).
 
-![freecad](https://github.com/qewer33/qron0b/blob/main/assets/freecad_screenshot.png?raw=true)
+![freecad screenshot](https://github.com/qewer33/qron0b/blob/main/assets/freecad_exploded_screenshot.png?raw=true)
+
+![technical drawing](https://github.com/qewer33/qron0b/blob/main/assets/freecad_techdraw.png?raw=true)
 
 ## Firmware
 
