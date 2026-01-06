@@ -21,7 +21,7 @@ qron0b's default firmware is very minimalistic and thus only contains two basic 
 
 ### Reading Time
 
-The time is displayed in BCD (binary coded decimal) format on qron0b's 4x4 LED matrix in columns (HH:MM), with the LSB (least-significant bir) being the bottom-most LED. Meaning for each column; the bottom-most LED represents 1, the one above represents 2, two above represents 4 and the top-most LED represents 8. All LEDs being off in a column represents 0. The first column is the tens digit of hour, the second column is the ones digit of hour, third column is the tens digit of minute and the fourth column is the ones digit of minute.
+The time is displayed in BCD (binary coded decimal) format on qron0b's 4x4 LED matrix in columns (HH:MM), with the LSB (least-significant bit) being the bottom-most LED. Meaning for each column; the bottom-most LED represents 1, the one above represents 2, two above represents 4 and the top-most LED represents 8. All LEDs being off in a column represents 0. The first column is the tens digit of hour, the second column is the ones digit of hour, third column is the tens digit of minute and the fourth column is the ones digit of minute.
 
 Below is a visual explanation and a few examples to help explain it better:
 
